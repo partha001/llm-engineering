@@ -1,17 +1,10 @@
-import os
+'''
+reading the title and body of website using beautifulSoup
+'''
 import requests
-from dotenv import load_dotenv
 from bs4 import BeautifulSoup
-from IPython.display import Markdown, display
-from openai import OpenAI
 
 
-load_dotenv()
-api_key = os.getenv('OPENAI_API_KEY')
-
-openai = OpenAI()
-
-# this class represents a website that we we will scraped
 class Website:
     """
     A utility class to represent a website that we h  n   ave scraped

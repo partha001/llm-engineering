@@ -1,3 +1,6 @@
+"""
+this is a simple program which shows how to make a call to open-ai
+"""
 import os
 import requests
 from dotenv import load_dotenv

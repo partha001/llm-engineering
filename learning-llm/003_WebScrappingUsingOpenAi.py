@@ -46,7 +46,7 @@ Respond in markdown."
 def user_prompt_for(website) :
     user_prompt = f"You are looking at a websie titled {website.title}"
     user_prompt += "the contents of this website is a follows: \
-please provid a short summary of this website in markdown. \
+please provide a short summary of this website in markdown. \
 If it includes news or announcements, then summarize these too.\n\n"
     user_prompt += website.text
     return user_prompt
@@ -66,10 +66,16 @@ def messages_for(website):
 
 def summarize(url):
     website = Website(url)
+    preprard_messages = messages_for(website)
+    print("-------- prepared messages -------------")
+    print(preprard_messages)
     response = openai.chat.completions.create(
         model = "gpt-4o-mini",
-        messages = messages_for(website)
+        messages =  preprard_messages
     )
     return response.choices[0].message.content
 
-summarize("https://www.screener.in/")
+response = summarize("https://www.screener.in/")
+
+print("--------- open api response ------------------")
+print(response)
