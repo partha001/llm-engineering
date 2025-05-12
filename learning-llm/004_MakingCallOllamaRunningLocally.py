@@ -1,8 +1,11 @@
+'''
+prerequisite first download and install ollama.
 
-
+ones installed we can check by visiting http://localhost:11434/
+if installed successfully the link will say - Ollama is running
+'''
+import ollama
 import requests
-from bs4 import BeautifulSoup
-from IPython.display import Markdown, display
 
 # Constants
 OLLAMA_API = "http://localhost:11434/api/chat"
@@ -19,5 +22,10 @@ payload = {
     "stream":False
 }
 
-response = requests.post(OLLAMA_API, json=payload, headers= HEADERS)
-print(response.json()['message']['content'])
+response = requests.post(OLLAMA_API, json=payload, headers= HEADERS) # getting the response from local llm using requests object
+print(response.json()['message']['content']) #here we are basically printing json.message.content
+
+
+## another way of getting the response from the local llm using ollama object
+response = ollama.chat(model=MODEL, messages=messages)
+print(response['message']['content'])
