@@ -26,6 +26,9 @@ response = requests.post(OLLAMA_API, json=payload, headers= HEADERS) # getting t
 print(response.json()['message']['content']) #here we are basically printing json.message.content
 
 
-## another way of getting the response from the local llm using ollama object
+print("----------- another way of calling ollama -----------------------")
+
+
+# ## another way of getting the response from the local llm using ollama object
 response = ollama.chat(model=MODEL, messages=messages)
 print(response['message']['content'])
