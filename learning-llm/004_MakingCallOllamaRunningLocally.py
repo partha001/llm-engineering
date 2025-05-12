@@ -22,13 +22,12 @@ payload = {
     "stream":False
 }
 
+# option1: calling the rest-api endpoint of the localsystem as shown below .
 response = requests.post(OLLAMA_API, json=payload, headers= HEADERS) # getting the response from local llm using requests object
 print(response.json()['message']['content']) #here we are basically printing json.message.content
 
-
 print("----------- another way of calling ollama -----------------------")
 
-
-# ## another way of getting the response from the local llm using ollama object
+# option2: making use of the python package ollama which internally makes call to the same endpoint which we called above.
 response = ollama.chat(model=MODEL, messages=messages)
 print(response['message']['content'])
