@@ -8,7 +8,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model = "gpt-4o", api_key=OPENAI_API_KEY)
 
 prompt_template = PromptTemplate(
-    inpout_variables=["country"], #for now having only one variable . however there can be multiple variables as well
+    input_variables=["country"], #for now having only one variable . however there can be multiple variables as well
     template="""
     You are an expert in traditional cuisines. Your provide 
     information about a specific dish from a specific country.    
