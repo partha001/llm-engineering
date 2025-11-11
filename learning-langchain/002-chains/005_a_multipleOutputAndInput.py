@@ -6,6 +6,15 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda
 from langchain_ollama import ChatOllama
 
+# this program shows how we using lambda while defining the final chain.
+# this lambda takes the output from chain1 then return a dictionary which
+# is then passed over chain2 as input.
+
+# also note that the second input ie. emotionInput is not passed to chain1 but passed to chain2
+# while composing the dictionary which is the input for chain2
+
+
+
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model = "gpt-4o", api_key=OPENAI_API_KEY)
@@ -23,7 +32,7 @@ prompt_template1 = PromptTemplate(
 
 
 prompt_template2 = PromptTemplate(
-    input_variable= ["title", "emption"],
+    input_variable= ["title", "emotion"],
     template="""
     You need to write a powerful {emotion} speech of 350 words for the following title:  
     {title}
@@ -33,6 +42,7 @@ prompt_template2 = PromptTemplate(
 first_chain = prompt_template1 | llm | StrOutputParser()
 second_chain = prompt_template2 | gemma
 final_chain = first_chain | (lambda title: {"title": title, "emotion":emotionInput}) | second_chain
+
 
 ## passing an input: ai and ethics
 topicInput = input("Enter the topic: \n")

@@ -9,6 +9,7 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
 
+# this is the same as the previous program just that it used streamlit
 
 st.title("Speech generator")
 prompt_template1 = PromptTemplate(

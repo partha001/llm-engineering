@@ -6,6 +6,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda
 from langchain_ollama import ChatOllama
 
+# this program shows how use different llms as for different chains
+
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model = "gpt-4o", api_key=OPENAI_API_KEY)
@@ -31,8 +33,6 @@ prompt_template2 = PromptTemplate(
 )
 
 first_chain = prompt_template1 | llm | StrOutputParser()
-
-
 second_chain = prompt_template2 | gemma
 final_chain = first_chain | second_chain
 

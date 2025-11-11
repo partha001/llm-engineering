@@ -4,6 +4,13 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 
+# # this program show how to format output. for these we done below 3 steps
+# 1. imported JsonOutputParser
+# 2. whichever chain we will produce the output as json we have configured its prompt to tell what will be the keys
+# 3. passed an instance of the JsonOutputParser() while configuring the chain defintion
+# 4. while accessing the final output here we dont do response.content. rather the response object will contain the entire json
+#     also additionally if we need to read specific key from the output json then we can do it response['keyName']
+
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model = "gpt-4o", api_key=OPENAI_API_KEY)

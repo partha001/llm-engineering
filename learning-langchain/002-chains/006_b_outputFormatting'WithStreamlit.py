@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser,JsonOutputParser
 
+# this is same as the previous program but with streamlit
+
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
