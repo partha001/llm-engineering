@@ -1,17 +1,18 @@
+'''
+this program shows how to index documents and then
+query ask question to the llm . some of the same question that we can try are given the
+rag_questions.txt i.e. this is the same program as the same one only difference is that
+here we are making use of openai as the llm model
+'''
+
 import os
-from langchain_ollama import OllamaEmbeddings
-from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma
-from langchain_ollama import ChatOllama
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.messages import SystemMessage, HumanMessage
+
 from dotenv import load_dotenv
-
-
+from langchain_chroma import Chroma
+from langchain_community.document_loaders import TextLoader
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
-
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 print("Import successful!")
 

@@ -1,17 +1,17 @@
-import os
+'''
+this program shows how to index documents and then
+query ask question to the llm . some of the same question that we can try are given the
+rag_questions.txt
+
+and here we are making use of llama running locally as the llm model
+'''
+
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.messages import SystemMessage, HumanMessage
-from dotenv import load_dotenv
-
-
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
-
 
 print("Import successful!")
 
@@ -19,11 +19,6 @@ print("Import successful!")
 
 llamma = ChatOllama(model="llama3.2:latest")
 embeddings = OllamaEmbeddings(model="llama3.2:latest")
-
-# load_dotenv()
-# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-# embeddings=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-# llamma=ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
 
 
 document = TextLoader("product-data.txt").load()
