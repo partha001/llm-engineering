@@ -1,12 +1,15 @@
-import os
-from dotenv import load_dotenv
-from langchain_ollama import ChatOllama, OllamaEmbeddings
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+'''
+this is the same program as the previous 2 programs the difference is that here we are
+making use of langchain to break the task in 2 chains. where one chain gets the relevant documents from
+the vector store and then passes it the second chain.
+'''
+
 from langchain_chroma import Chroma
+from langchain_community.document_loaders import TextLoader
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough, RunnableMap, RunnableLambda
+from langchain_core.runnables import RunnablePassthrough, RunnableMap
+from langchain_ollama import ChatOllama, OllamaEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # === Load model and embeddings ===
 llm = ChatOllama(model="llama3.2:latest")
