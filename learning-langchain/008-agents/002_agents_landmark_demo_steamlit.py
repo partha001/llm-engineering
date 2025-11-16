@@ -83,3 +83,5 @@ if task:
     response = agent_executor.invoke({"input": task+ " without explanation"})
     st.write(response['output'])
 
+#example prompt:i uploaded an image of the eiffer tower present inside the images folder and then asked
+# give me names of some restaurant around this place in the picture
