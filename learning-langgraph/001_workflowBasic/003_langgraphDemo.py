@@ -1,3 +1,11 @@
+'''
+this program shows how to visualize the langgraph . for this we have defined our own util calls langgraph_util
+and have then used the same here.
+
+note: that ones the graph is compiled we get a runnable . then this runnable can be used to generate the visualization
+of the graph
+'''
+
 from typing import TypedDict
 from langgraph.graph import END, START, StateGraph
 from util.langgraph_util import  display
@@ -22,7 +30,6 @@ graph.add_node("node1", node1Hello)
 graph.add_node("node2", node2Bye)
 
 #creating edges
-#graph.add_edge(START, "node1")
 graph.add_edge("node1", "node2")
 graph.add_edge("node2", END)
 
