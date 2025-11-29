@@ -10,11 +10,16 @@
 
 from langgraph.graph import END, START, StateGraph
 from pydantic import BaseModel, Field
+from typing import Optional
 
 # defining the state
 class HelloWorldState(BaseModel):
-    message:str = Field(min_length=2, max_length=10) #adding pydantic validation
-    id: int
+    message:str = Field(min_length=2) #adding pydantic validation
+    # id: int  #this will make the id mandatory. and this is the default behavior.
+
+    ## however to make the id optional we have define it like below :
+    #id: Optional[int] = None
+
 
 def node1Hello(state: HelloWorldState):
     print(f"Hello Node: {state.message}")
