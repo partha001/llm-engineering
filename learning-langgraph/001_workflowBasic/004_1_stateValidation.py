@@ -1,3 +1,14 @@
+'''
+note that if we call the invoke() without passing any parameter we get the below error:
+
+program output:
+    Traceback (most recent call last):
+      File "C:\ParthaFiles\git\llm-engineering\learning-langgraph\001_workflowBasic\004_1_stateValidation.py", line 34, in <module>
+        output = runnable.invoke()
+                 ^^^^^^^^^^^^^^^^^
+    TypeError: Pregel.invoke() missing 1 required positional argument: 'input'
+'''
+
 from typing import TypedDict
 from langgraph.graph import END, START, StateGraph
 from util.langgraph_util import  display
@@ -30,7 +41,7 @@ graph.set_entry_point("node1")
 
 runnable = graph.compile()
 display(runnable)
-# #output = runnable.invoke({"message":"partha"})
-# output = runnable.invoke()
-# print(output)
+#output = runnable.invoke({"message":"partha"})
+output = runnable.invoke()
+print(output)
 
