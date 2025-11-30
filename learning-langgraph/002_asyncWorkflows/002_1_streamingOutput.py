@@ -3,6 +3,7 @@
 from langgraph.graph import START,END, StateGraph
 from pydantic import BaseModel, Field
 from langgraph.types import  StreamWriter
+from typing import Optional
 
 
 # defining the state
