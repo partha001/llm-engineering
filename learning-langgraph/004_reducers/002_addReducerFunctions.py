@@ -19,7 +19,7 @@ def connect_to_sales(state: ChatBotState):
 
 
 def sales_response(state: ChatBotState):
-    return {"messages": [AIMessage(content="We have the best offere for you",
+    return {"messages": [AIMessage(content="We have the best offer for you",
                                    )], "discount": 20}
 
 
@@ -41,7 +41,7 @@ chatbot = graph_builder.compile()
 # simulate different conversations
 test_inputs = "I want to buy your product."
 
-messages = chatbot.invoke({"message": [HumanMessage(content=test_inputs)]})
+messages = chatbot.invoke({"messages": [HumanMessage(content=test_inputs)]})
 
 for message in messages["messages"]:
     print(f" **Bot:** {message.content}")
