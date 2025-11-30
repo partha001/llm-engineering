@@ -1,14 +1,15 @@
-from typing import TypedDict
+from typing import Annotated, TypedDict
+from langchain_core.messages import AnyMessage
+from operator import add
+from langgraph.graph import END, START, StateGraph
 
 from langchain_core.messages import AIMessage, HumanMessage
-from langchain_core.messages import AnyMessage
-from langgraph.graph import END, START, StateGraph
 
 
 # defining chatbot state with accumulated messages
 class ChatBotState(TypedDict):
-    messages: list[AnyMessage]
-    discount: int
+    messages: Annotated[list[AnyMessage], add]
+    discount:  Annotated[int, add]
 
 
 # responses based on intent level
