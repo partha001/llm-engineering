@@ -4,3 +4,4 @@ learning-langchain/.learning-langchain-VenvConda/
 learning-langgraph/.learning-langgraph-condaVenv/
 *.iml
 **/__pycache__/**
+learning-langchain/.learning-langchainVenvConda/
