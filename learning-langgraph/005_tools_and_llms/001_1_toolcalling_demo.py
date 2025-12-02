@@ -10,6 +10,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 @tool
 def get_restaurant_recommendations(location: str):
     """Provides a list of top restaurant recommendations for a given location."""
+    print("finding recommendations:")
     recommendations = {
         "munich": ["Hofbräuhaus", "Augustiner-Keller", "Tantris"],
         "new york": ["Le Bernardin", "Eleven Madison Park", "Joe's Pizza"],
@@ -30,6 +31,8 @@ messages = [
 
 #TODO: Invoke the llm
 llm_output = llm_with_tools.invoke(messages)
+print(type(llm_output))
 print(llm_output)
+
 
 
