@@ -61,10 +61,10 @@ workflow.add_edge(START, "agent")
 workflow.add_conditional_edges("agent", should_continue)
 workflow.add_edge("tools","agent")
 
-#checkpointer = MemorySaver()
-#graph = workflow.compile(checkpointer=checkpointer)
+checkpointer = MemorySaver()
+graph = workflow.compile(checkpointer=checkpointer)
 
-graph = workflow.compile()
+#graph = workflow.compile()
 
 display(graph)
 config={"configurable":{"thread_id":"1"}}
@@ -85,3 +85,9 @@ response = graph.invoke(
 # TODO: Extract the recommended restaurant
 final_response = response["messages"][-1].content
 print(final_response)
+
+
+
+# ## program output:
+# One top restaurant in Paris is "Le Meurice".
+# Table successfully booked at Le Meurice for 7:00 PM.
