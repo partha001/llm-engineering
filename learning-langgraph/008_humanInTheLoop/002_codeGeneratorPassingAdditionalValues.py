@@ -9,8 +9,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langgraph.types import interrupt
 from langgraph.types import Command
 
-
-
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 

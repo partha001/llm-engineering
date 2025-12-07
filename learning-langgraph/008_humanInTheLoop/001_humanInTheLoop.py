@@ -9,8 +9,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langgraph.types import interrupt
 from langgraph.types import Command
 
-
-
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -37,9 +35,7 @@ def generate_code(state):
 
 # TODO
 def human_review(state):
-    value = interrupt({
-        "question": "Are you ok with the code.Type yes or no \n"
-    })
+    value = interrupt({})
     if value == "yes":
         return Command(goto="create_tests")
     else:
@@ -68,11 +64,8 @@ result = coding_assistant.invoke(inputs, config=thread)
 # TODO: Handle Interrupt
 print("\n-----Generated Code--------")
 print(result["code"])
-tasks = coding_assistant.get_state(config=thread).tasks
-print(tasks)
-task = tasks[0]
-question = task.interrupts[0].value.get("question")
-user_input = input(question)
+user_input = input("are you ok with the code. Type yes or no \n")
+
 result = coding_assistant.invoke(Command(resume=user_input),config=thread)
 
 print("\n--- Generated Tests ---")
