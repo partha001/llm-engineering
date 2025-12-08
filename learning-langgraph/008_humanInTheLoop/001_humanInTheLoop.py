@@ -37,7 +37,7 @@ def generate_code(state):
 def human_review(state):
     print(f"before interrupt. state: {state}\n")
     value = interrupt({})
-    print(f"after interrupt. state: {state}\n")
+    print(f"after interrupt.\n")
     if value == "yes":
         return Command(goto="create_tests")
     else:
