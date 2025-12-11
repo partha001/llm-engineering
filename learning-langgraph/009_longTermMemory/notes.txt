@@ -1,0 +1,9 @@
+1. install the below library if its not installed already:
+pip install langgraph-checkpoint-postgres
+pip install "psycopg[binary]"
+
+2. start a postgres docker instance using the below command
+docker run  --name mypostgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=mydatabase -p 5432:5432  -d --rm postgres:16.3
+
+3. ones the postgres database container is up . connect to the database-server and then create the below schema
+langgraph_memory
